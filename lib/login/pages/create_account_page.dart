@@ -1,6 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_application_2/home/pages/home_page.dart';
+import 'package:flutter_application_2/home/pages/main_navigationbar_page.dart';
 import 'package:flutter_application_2/login/widgets/custom_button.dart';
 import 'package:flutter_application_2/login/widgets/customtextfield_widget.dart';
 
@@ -44,7 +44,7 @@ class _CreateAccountPageState extends State<CreateAccountPage> {
     Navigator.pushReplacement(
       context,
       MaterialPageRoute(
-        builder: (context) => HomePage(),
+        builder: (context) => MainNavigationbarPage()
       ),
     );
   } on FirebaseAuthException catch (e) {
