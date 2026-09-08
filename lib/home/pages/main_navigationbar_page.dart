@@ -18,8 +18,8 @@ class _MainNavigationbarPageState extends State<MainNavigationbarPage> {
 
   final List<Widget> _pages = [
     HomePage(),
-    ReadPoemPage(),
     PractisePage(),
+    ReadPoemPage(),
     FormPage()
 
   ];
