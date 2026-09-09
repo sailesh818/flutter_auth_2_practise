@@ -17,8 +17,26 @@ class _ReadPoemPageState extends State<ReadPoemPage> {
       body: StreamBuilder<QuerySnapshot>(
         stream: FirebaseFirestore.instance.collection("poems").orderBy("createdAt", descending: true).snapshots(), 
         builder: (context, snapshot){
-          final poems = snapshot.data!.docs;
 
+          if (snapshot.connectionState == ConnectionState.waiting) {
+            return Center(
+              child: CircularProgressIndicator(),
+            );
+          }
+
+          if (snapshot.hasError) {
+            return Center(
+              child: Text("Error: ${snapshot.error}"),
+            );
+          }
+
+          if (!snapshot.hasData || snapshot.data!.docs.isEmpty) {
+            return Center(
+              child: Text("No poems found"),
+            );
+          }
+
+          final poems = snapshot.data!.docs;
           return ListView.builder(
             itemCount: poems.length,
             itemBuilder: (context, index){
