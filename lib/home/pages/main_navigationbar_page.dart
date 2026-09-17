@@ -2,7 +2,8 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_application_2/home/pages/form_page.dart';
 import 'package:flutter_application_2/home/pages/home_page.dart';
-import 'package:flutter_application_2/home/pages/practise_page.dart';
+import 'package:flutter_application_2/home/pages/offline_poem.dart';
+
 import 'package:flutter_application_2/home/pages/read_poem_page.dart';
 import 'package:flutter_application_2/login/pages/login_page.dart';
 
@@ -18,7 +19,7 @@ class _MainNavigationbarPageState extends State<MainNavigationbarPage> {
 
   final List<Widget> _pages = [
     HomePage(),
-    PractisePage(),
+    OfflinePoem(),
     ReadPoemPage(),
     FormPage()
 
@@ -77,7 +78,7 @@ class _MainNavigationbarPageState extends State<MainNavigationbarPage> {
 
           ListTile(
             leading: Icon(Icons.school),
-            title: Text("Practise"),
+            title: Text("Offline Poems"),
             onTap: () {
               Navigator.pop(context);
               setState(() {
@@ -145,8 +146,8 @@ class _MainNavigationbarPageState extends State<MainNavigationbarPage> {
           ),
 
           BottomNavigationBarItem(
-            icon: Icon(Icons.school),
-            label: "Practise"
+            icon: Icon(Icons.offline_bolt_rounded),
+            label: "Offline"
           ),
 
           BottomNavigationBarItem(
